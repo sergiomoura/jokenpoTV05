@@ -19,18 +19,19 @@ scissorsButton.onclick = onButtonClick;
 
 let nVitoriasUsuario = 0;
 let nVitoriasComputador = 0;
+let nEmpates = 0;
 
 function onButtonClick(evento){
   
   // Capturar em forma de string a jogada do usuário
   let jogadaDoUsuario = evento.target.getAttribute('id').replace('Button','');
-  console.log('Jogada usuário:', jogadaDoUsuario);
+  // console.log('Jogada usuário:', jogadaDoUsuario);
 
   // Gerar uma jogada do computador (aleatório)
   let nAleatorio = Math.floor(3*Math.random());
   let jogadasPossiveis = ["paper", "rock", "scissors"];
   let jogadaDoComputador = jogadasPossiveis[nAleatorio]
-  console.log('Jogada computador:', jogadaDoComputador);
+  // console.log('Jogada computador:', jogadaDoComputador);
 
   // Descobrir quem ganhou e guardar em variável o número de vitorias de cada um
   // nVitoriasUsuario x nVitoriasComputador
@@ -40,24 +41,37 @@ function onButtonClick(evento){
     case "rockscissors":
     case "scissorspaper":
       nVitoriasUsuario++;
-      console.log("USUÁRIO GANHOU");
+      // console.log("USUÁRIO GANHOU");
       break;
 
     case "paperscissors":
     case "rockpaper":
     case "scissorsrock":
       nVitoriasComputador++;
-      console.log("COMPUTADOR GANHOU");
+      // console.log("COMPUTADOR GANHOU");
       break;
   
     default:
-      console.log("DEU EMPATE!");
+      nEmpates++;
+      // console.log("DEU EMPATE!");
       break;
   }
 
   // Exibir o placar do jogo
   userScore.innerText = nVitoriasUsuario;
   compScore.innerText = nVitoriasComputador;
+
+}
+
+
+function simular(nJogadas){
+  const mockedEvent = {target:{getAttribute:()=>"paperButton"}};
+  for (let i = 0; i < nJogadas; i++) {
+    onButtonClick(mockedEvent);
+  }
+  console.log("Número de Vitórias do Computador:", `${100*nVitoriasComputador/nJogadas}%`);
+  console.log("Número de Vitórias do Usuário:", `${100*nVitoriasUsuario/nJogadas}%`);
+  console.log("Número de Empates:", `${100*nEmpates/nJogadas}%`);
 
 }
 
