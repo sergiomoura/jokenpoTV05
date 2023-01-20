@@ -1,28 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-*{
+* {
     font-family: 'PT Sans', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
+html {
+    height: 100%;
+}
+
 body {
     background-color: #292C34;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-/* Header */
-header{
-    height: 90px;
-    background-color: white;
+main {
+    width: 400px;
 }
 
-header > h1{
-    padding-top: 20px;
-    font-size: 35px;
-    font-weight: bold;
+#compChoice {
+    position: relative;
+}
+
+#compChoice img{
+    height: 100px;
+    width: 100px;
+    margin: 6px;
+    border: 3px solid white;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+#compChoice #counter{
+    background-color: inherit;
+    border: 3px solid white;
+    color: white;
+    font-size: 18px;
+    height: 32px;
+    width: 32px;
+    display: block;
+    position: absolute;
+    bottom: 0;
 }
 
 /* Scoreboard / Placar */
@@ -30,39 +54,37 @@ header > h1{
     position: relative;
     color: #ffffff;
     width: 270px;
-    margin: 10px auto 60px auto;;
+    margin: 10px auto;
 }
 
 #scores{
-    font-size: 50px;
+    font-size: 40px;
     border: 3px solid white;
     width: 270px;
-    height: 100px;
-    padding: 10px;
-}
-
-#userScore{
-    padding-right: 20px;
-}
-
-#compScore{
-    padding-left: 20px;
+    padding: 10px 0;
 }
 
 .scoreLabel{
     background-color: #ff7070;
     width: 50px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 12px;
 }
 
 #userLabel{
     position: absolute;
-    top: 40px;
+    top: 24px;
     left: -25px;
 }
 
 #compLabel{
     position: absolute;
-    top: 40px;
+    top: 24px;
     right: -25px;
 }
 
@@ -80,9 +102,9 @@ header > h1{
 }
 
 .buttons > img {
-    height: 150px;
-    width: 150px;
-    margin: 15px;
+    height: 100px;
+    width: 106x;
+    margin: 6px;
     border: 3px solid white;
     border-radius: 50%;
     padding: 20px;
@@ -120,7 +142,6 @@ footer {
 }
 
 /* botões */
-
 .buttonWrap {
     padding-top: 20px;
 }
