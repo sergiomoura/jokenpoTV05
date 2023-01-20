@@ -138,19 +138,19 @@ function jogadaAleatoria(){
   return jogadasPossiveis[n];
 }
 
-function onPaperImgClick(){
+function onImgPapelClick(){
   jokenpo(PAPEL);
 }
 
-function onRockImgClick(){
+function onImgPedraClick(){
   jokenpo(PEDRA);
 }
 
-function onScissorsImgClick(){
+function onImgTesouraClick(){
   jokenpo(TESOURA);
 }
 
-imgPapel.addEventListener("click", onPaperImgClick);
-imgPedra.addEventListener("click", onRockImgClick);
-imgTesoura.addEventListener("click", onScissorsImgClick);
+imgPapel.addEventListener("click", onImgPapelClick);
+imgPedra.addEventListener("click", onImgPedraClick);
+imgTesoura.addEventListener("click", onImgTesouraClick);
 
