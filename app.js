@@ -91,7 +91,7 @@ function jokenpo(jogadaDoUsuario) {
     pontosDoComputador++;
     alertarVitoriaDoComputador();
   } else {
-    alertarEmpate();
+    // alertarEmpate();
   }
 
   if(pontosDoUsuario > pontosDoComputador){
@@ -112,22 +112,22 @@ function quemVenceu(jogadaDoUsuario, jogadaDoComputador){
 
   switch(combinacao){
     
-    // vitória do usuário: paperrock; rockscissors; scissorspaper
-    case "paperrock":
-    case "rockscissors":
-    case "scissorspaper":
+    // VITÓRIA!
+    case PAPEL + PEDRA:
+    case PEDRA + TESOURA:
+    case TESOURA + PAPEL:
       return USUARIO;
     
-      // derrota do usuário: rockpaper, scissorsrock, paperscissors
-    case "rockpaper":
-    case "scissorsrock":
-    case "paperscissors":
+      // DERROTA!
+    case PEDRA + PAPEL:
+    case TESOURA + PEDRA:
+    case PAPEL + TESOURA:
       return COMPUTADOR
 
-    // empates
-    case "rockrock":
-    case "scissorsscissors":
-    case "paperpaper":
+    // EMPATE!
+    case PEDRA + PEDRA:
+    case TESOURA + TESOURA:
+    case PAPEL + PAPEL:
       return undefined;
     
   }
