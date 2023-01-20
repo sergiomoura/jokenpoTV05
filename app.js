@@ -9,12 +9,15 @@ const SCISSORS = "scissors";
 const jogadasPossiveis = [PAPER, ROCK, SCISSORS];
 
 const userScore = document.getElementById('userScore')
+const compChoice = document.getElementById('compChoice');
 const computerScore = document.getElementById('compScore')
 const paperImg = document.getElementById('paperImg') 
 const rockImg = document.getElementById('rockImg') 
 const scissorsImg = document.getElementById('scissorsImg')
 const result_p = document.getElementById('result')
 const scores_p = document.getElementById('scores')
+const somDaVitoria = document.getElementById('somDaVitoria');
+const somDaDerrota = document.getElementById('somDaDerrota');
 
 function quemEstaGanhando(resultadoUsuario, resultadoComputador) {
   
@@ -29,11 +32,32 @@ function quemEstaGanhando(resultadoUsuario, resultadoComputador) {
 }
 
 
-function alertarVitoriaDoUsuario(){};
+function alertarVitoriaDoUsuario(jogadaDoUsuario, jogadaDoComputador){
+  somDaVitoria.pause();
+  somDaVitoria.currentTime = 0;
+  somDaVitoria.play();
+};
 
-function alertarVitoriaDoComputador(){};
+function alertarVitoriaDoComputador(){
+  somDaDerrota.pause();
+  somDaDerrota.currentTime = 0;
+  somDaDerrota.play();
+};
 
 function alertarEmpate(){};
+
+function mostrarJogadaDoComputador(jogadaDoComputador){
+  let img = document.createElement('img');
+  if (jogadaDoComputador == PAPER) {
+    img.src = './images/paper.png';
+  } else if (jogadaDoComputador == ROCK) {
+    img.src = './images/rock.png';
+  } else {
+    img.src = './images/scissors.png';
+  }
+  compChoice.innerHTML = '';
+  compChoice.appendChild(img);
+}
 
 function mostrarUsuarioVencendo(){
   scores_p.classList = ""
@@ -60,6 +84,7 @@ function atualizarPlacar(pontosDoUsuario, pontosDoComputador){
 function jokenpo(jogadaDoUsuario) {
 
   const jogadaDoComputador = jogadaAleatoria();
+  mostrarJogadaDoComputador(jogadaDoComputador);
 
   let vencedor = quemVenceu(jogadaDoUsuario, jogadaDoComputador)
   
@@ -85,9 +110,9 @@ function jokenpo(jogadaDoUsuario) {
 
 }
 
-function quemVenceu(escolhaUsuario, escolhaComp){
+function quemVenceu(jogadaDoUsuario, jogadaDoComputador){
 
-  const combinacao = escolhaUsuario + escolhaComp;
+  const combinacao = jogadaDoUsuario + jogadaDoComputador;
 
   switch(combinacao){
     
@@ -132,27 +157,4 @@ function onScissorsImgClick(){
 paperImg.addEventListener("click", onPaperImgClick);
 rockImg.addEventListener("click", onRockImgClick);
 scissorsImg.addEventListener("click", onScissorsImgClick);
-
-// function destaqueBotao(jogado, resultado){
-  
-//   // Capturo o botão clicado...
-//   const botaoClicado = document.getElementById(jogado + 'Button');
-  
-//   if(resultado == 1){
-//     botaoClicado.classList.add("green-glow");
-//     // setTimeout(() => {
-//     //   botaoClicado.classList.remove("green-glow")
-//     // }, 500);
-//   } else if(resultado == -1){
-//     botaoClicado.classList.add("red-glow");
-//     // setTimeout(() => {
-//     //   botaoClicado.classList.remove("red-glow")
-//     // }, 500);
-//   }
-// }
-
-
-
-
-
 
