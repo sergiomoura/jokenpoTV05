@@ -3,21 +3,20 @@ let pontosDoComputador = 0
 
 const USUARIO = 'Usuário';
 const COMPUTADOR = 'Computador';
-const PAPER = "paper";
-const ROCK = "rock";
-const SCISSORS = "scissors";
-const jogadasPossiveis = [PAPER, ROCK, SCISSORS];
+const PAPEL = "paper";
+const PEDRA = "rock";
+const TESOURA = "scissors";
+const jogadasPossiveis = [PAPEL, PEDRA, TESOURA];
 
-const userScore = document.getElementById('userScore')
-const compChoice = document.getElementById('compChoice');
-const computerScore = document.getElementById('compScore')
-const paperImg = document.getElementById('paperImg') 
-const rockImg = document.getElementById('rockImg') 
-const scissorsImg = document.getElementById('scissorsImg')
-const result_p = document.getElementById('result')
-const scores_p = document.getElementById('scores')
-const somDaVitoria = document.getElementById('somDaVitoria');
-const somDaDerrota = document.getElementById('somDaDerrota');
+const imgPapel = document.getElementById('imgPapel') 
+const imgPedra = document.getElementById('imgPedra') 
+const imgTesoura = document.getElementById('imgTesoura')
+const imgJogadaDocuputador = document.getElementById('compChoice');
+const spanPlacarUsuario = document.getElementById('userScore')
+const spanPlacarComputador = document.getElementById('compScore')
+const pPlacar = document.getElementById('scores')
+const audioDaVitoria = document.getElementById('audioDaVitoria');
+const audioDaDerrota = document.getElementById('audioDaDerrota');
 
 function quemEstaGanhando(resultadoUsuario, resultadoComputador) {
   
@@ -31,54 +30,51 @@ function quemEstaGanhando(resultadoUsuario, resultadoComputador) {
 
 }
 
-
-function alertarVitoriaDoUsuario(jogadaDoUsuario, jogadaDoComputador){
-  somDaVitoria.pause();
-  somDaVitoria.currentTime = 0;
-  somDaVitoria.play();
+function alertarVitoriaDoUsuario(){
+  audioDaVitoria.pause();
+  audioDaVitoria.currentTime = 0;
+  audioDaVitoria.play();
 };
 
 function alertarVitoriaDoComputador(){
-  somDaDerrota.pause();
-  somDaDerrota.currentTime = 0;
-  somDaDerrota.play();
+  audioDaDerrota.pause();
+  audioDaDerrota.currentTime = 0;
+  audioDaDerrota.play();
 };
-
-function alertarEmpate(){};
 
 function mostrarJogadaDoComputador(jogadaDoComputador){
   let img = document.createElement('img');
-  if (jogadaDoComputador == PAPER) {
+  if (jogadaDoComputador == PAPEL) {
     img.src = './images/paper.png';
-  } else if (jogadaDoComputador == ROCK) {
+  } else if (jogadaDoComputador == PEDRA) {
     img.src = './images/rock.png';
   } else {
     img.src = './images/scissors.png';
   }
-  compChoice.innerHTML = '';
-  compChoice.appendChild(img);
+  imgJogadaDocuputador.innerHTML = '';
+  imgJogadaDocuputador.appendChild(img);
 }
 
 function mostrarUsuarioVencendo(){
-  scores_p.classList = ""
-  scores_p.classList.add('green-glow')
-  scores_p.style.color = "#26ff63"
+  pPlacar.classList = ""
+  pPlacar.classList.add('green-glow')
+  pPlacar.style.color = "#26ff63"
 }
 
 function mostrarComputadorVencendo(){
-  scores_p.classList = ""
-  scores_p.classList.add('red-glow')
-  scores_p.style.color = "#fc121b";
+  pPlacar.classList = ""
+  pPlacar.classList.add('red-glow')
+  pPlacar.style.color = "#fc121b";
 }
 
 function mostrarJogoEmpatado(){
-  scores_p.classList = ""
-  scores_p.style.color = "#ffffff";
+  pPlacar.classList = ""
+  pPlacar.style.color = "#ffffff";
 }
 
 function atualizarPlacar(pontosDoUsuario, pontosDoComputador){
-  userScore.innerHTML = pontosDoUsuario;
-  computerScore.innerText = pontosDoComputador;
+  spanPlacarUsuario.innerHTML = pontosDoUsuario;
+  spanPlacarComputador.innerText = pontosDoComputador;
 }
 
 function jokenpo(jogadaDoUsuario) {
@@ -143,18 +139,18 @@ function jogadaAleatoria(){
 }
 
 function onPaperImgClick(){
-  jokenpo(PAPER);
+  jokenpo(PAPEL);
 }
 
 function onRockImgClick(){
-  jokenpo(ROCK);
+  jokenpo(PEDRA);
 }
 
 function onScissorsImgClick(){
-  jokenpo(SCISSORS);
+  jokenpo(TESOURA);
 }
 
-paperImg.addEventListener("click", onPaperImgClick);
-rockImg.addEventListener("click", onRockImgClick);
-scissorsImg.addEventListener("click", onScissorsImgClick);
+imgPapel.addEventListener("click", onPaperImgClick);
+imgPedra.addEventListener("click", onRockImgClick);
+imgTesoura.addEventListener("click", onScissorsImgClick);
 
