@@ -159,13 +159,14 @@ function jokenpo(jogadaDoUsuario){
 
     atualizarPlacar(pontosDoUsuario, pontosDoComputador);
 
-    if(pontosDoComputador > pontosDoUsuario){
-        mostrarUsuarioPerdendo();
-    } else if(pontosDoComputador < pontosDoUsuario){
+    if(pontosDoUsuario > pontosDoComputador) {
         mostrarUsuarioVencendo();
+    } else if(pontosDoUsuario < pontosDoComputador){
+        mostrarUsuarioPerdendo();
     } else {
         mostrarJogoEmpatado();
     }
+
 }
 
 
