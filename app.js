@@ -127,9 +127,9 @@ function quemVenceu(jogadaDoUsuario, jogadaDoComputador) {
 
 /**
  * 
- * Aleatóriamente retorna PEDRA, PAPEL ou TESOURA
+ * Aleatoriamente retorna PEDRA, PAPEL ou TESOURA
  * 
- * @returns PEDRA | PAPEL | TESOURA
+ * @returns {PEDRA | PAPEL | TESOURA}
  */
 function jogadaAleatoria(){
     let n = Math.floor(3 * Math.random());
@@ -158,6 +158,14 @@ function jokenpo(jogadaDoUsuario){
     }
 
     atualizarPlacar(pontosDoUsuario, pontosDoComputador);
+
+    if(pontosDoComputador > pontosDoUsuario){
+        mostrarUsuarioPerdendo();
+    } else if(pontosDoComputador < pontosDoUsuario){
+        mostrarUsuarioVencendo();
+    } else {
+        mostrarJogoEmpatado();
+    }
 }
 
 
