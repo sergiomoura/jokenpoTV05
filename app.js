@@ -141,12 +141,30 @@ function jogadaAleatoria(){
  * @param {PEDRA | PAPEL | TESOURA} jogadaDoComputador 
  */
 function mostrarJogadaDoComputador(jogadaDoComputador){
+    
+    const img = document.createElement('img');
+
+    let src;
+    if(jogadaDoComputador == PEDRA){
+        src = './images/rock.png';
+    } else if(jogadaDoComputador == PAPEL){
+        src = './images/paper.png';
+    } else if(jogadaDoComputador == TESOURA){
+        src = './images/scissors.png';
+    }
+    img.src = src;
+
+    imgJogadaDoComputador.innerText = '';
+    imgJogadaDoComputador.appendChild(img);
 
 }
 
 function jokenpo(jogadaDoUsuario){
     
     let jogadaDoComputador = jogadaAleatoria();
+
+    mostrarJogadaDoComputador(jogadaDoComputador);
+
     let vencedor = quemVenceu(jogadaDoUsuario, jogadaDoComputador);
     
     if(vencedor == USUARIO) {
