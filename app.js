@@ -8,7 +8,7 @@ const PEDRA = "pedra";
 const TESOURA = "tesoura";
 const jogadasPossiveis = [PAPEL, PEDRA, TESOURA];
 
-// CAPTURA DE ELEMENTOS ------------------------------------
+// CAPTURA DE ELEMENTOS -----------------------------------
 const imgPapel = document.getElementById('imgPapel')
 const imgPedra = document.getElementById('imgPedra')
 const imgTesoura = document.getElementById('imgTesoura')
